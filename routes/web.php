@@ -25,6 +25,10 @@ Route::get('/manage-users', [
     'as' => 'manage_user', 'uses' => '\App\Http\Controllers\Auth\Home@view_users'
 ]);
 
+Route::get('/manage/invoices', [
+    'as' => 'manage.invoices', 'uses' => '\App\Http\Controllers\InvoiceController@manageInvoices'
+]);
+
 Route::get('/invoice', function () {
     return view('invoices');
 });
@@ -35,6 +39,10 @@ Route::post('/registering', [
     'as' => 'register', 'uses' => '\App\Http\Controllers\Auth\RegisterController@register'
 ]);
 
+Route::post('/save/invoice/', [
+    'as' => 'submit.invoice', 'uses' => '\App\Http\Controllers\InvoiceController@saveInvoice'
+]);
+
 Route::get('/register/login', function () {
     return view('auth/reg_or_login');
 });
@@ -42,6 +50,8 @@ Route::get('/register/login', function () {
 Route::get('/', function () {
     return view('auth/login');
 });
+
+
 
 
 

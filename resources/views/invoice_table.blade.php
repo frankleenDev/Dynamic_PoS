@@ -74,7 +74,6 @@
             </div>
           </div>
         </div>
-
         <!--
         <div class="container-fluid mt-2">
           <h5>Create an Invoice</h5>          
@@ -172,12 +171,68 @@
         </form>
 
       </div>
-      
+
+       <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Users</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-striped table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Customer Name</th>
+                      <th>Company Name</th>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Transport</th>
+                      <th>Installation</th>
+                      <th>Payment</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+                      <th>ID</th>
+                     <th>Customer Name</th>
+                      <th>Company Name</th>
+                      <th>Product</th>
+                      <th>Quantity</th>
+                      <th>Transport</th>
+                      <th>Installation</th>
+                      <th>Payment</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+
+                   @foreach( $invoices as $invoice )
+
+                      <tr>
+                        <td>{{ $invoice->id }}</td>
+                        <td>{{ $invoice->customer_name }}</td>
+                        <td>{{ $invoice->company_name }}</td>
+                        <td>{{ $invoice->product }} </td>
+                        <td>{{ $invoice->quantity }} </td>
+                        <td>{{ $invoice->transport_cost }}</td>
+                        <td>{{ $invoice->install_cost }}</td>
+                        <td>{{ $invoice->payment }}</td>
+                        <td> </td>
+                      </tr>
+
+                  @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
+      </div>
+
+     
+      <!--
       <div style="min-height: 842px" class="card shadow p-5 mb-5">
       
         <div class="container-fluid row">
           
-          <!-- Company name and address -->
+          <!-- Company name and address --
           <div class="col-lg-10 p-3">
 
             <div class="col-lg-6">
@@ -193,17 +248,17 @@
           </div>
           <!-- End of company and address-->
 
-          <!-- Logo Division -->
+          <!-- Logo Division --
           <div class="col-lg-2 pull-right p-4">
             <img class="pull-right" src="{{ asset('img/logos/logo.jpg')}}" width="100">
           </div>
-          <!-- End of Logo div -->
+          <!-- End of Logo div --
 
         </div>
 
-        <!-- Invoice details -->
+        <!-- Invoice details --
         <div class="container-fluid row">
-          <!-- Order Section -->
+          <!-- Order Section --
               <div class="col-lg-4 col-md-4">
                 <table class="table borderless">
                   <tr>
@@ -244,7 +299,7 @@
               </div>
               <!-- End of order -->
 
-              <!-- Bill Section -->
+              <!-- Bill Section --
               <div class="col-lg-4 col-md-4">
                 <table class="table borderless">
                   <tr>
@@ -285,7 +340,7 @@
               </div>
               <!-- End of bill -->
 
-              <!-- Bill Section -->
+              <!-- Bill Section --
               <div class="col-lg-4 col-md-4">
                 <table class="table borderless">
                   <tr>
@@ -317,9 +372,9 @@
                   
                 </table>
               </div>
-              <!-- End of bill -->
+              <!-- End of bill --
         </div>
-        <!-- End of Invoice details -->
+        <!-- End of Invoice details --
 
         <div class="table-responsive container-fluid mt-3">
           
@@ -377,7 +432,7 @@
         </div>
 
       </div>
-
+      -->
      <script type="text/javascript">
        
        document.getElementById("one").onchange = function () {
@@ -400,4 +455,5 @@
 
      </script>
       
+
 @endsection
