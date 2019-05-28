@@ -2,7 +2,104 @@
 
 @section('content')
 
-      <div class="card shadow p-5 mb-5">
+       <div class="card shadow p-2 mb-3">
+        <div class="container-fluid mt-2">
+          <h5>Create an Invoice</h5>          
+        </div>
+        <form class="d-none d-sm-inline-block form-inline ml-md-2 my-2 my-md-2 mw-100 navbar-search">
+          <div class="col-md-12 row">
+            <div class="input-group mb-1 col-md-3">
+              <input type="text" class="form-control border-1 small" name="customer_name" placeholder="Customer name" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <input type="text" class="form-control border-1 small" name="company_name" placeholder="Company" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <input type="text" class="form-control border-1 small" name="product" placeholder="Product" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <input type="number" class="form-control border-1 small" name="quantity" placeholder="Quantity" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <label>Tansport: &nbsp;</label>
+               <select id="one" name="" class="browser-default custom-select">
+              <option selected>none</option>
+              <option value="trans">Inclusive</option>
+            </select>
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <input type="text" disabled id="transport" class="form-control bg- border-1 small" placeholder="transport cost" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <label>Installation: &nbsp;</label>
+              <select id="two" class="browser-default custom-select">
+              <option selected>none</option>
+              <option value="install">Inclusive</option>
+            </select>
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <input type="text" id="installation" disabled class="form-control bg- border-1 small" placeholder="installation cost" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <label>Payment: &nbsp;</label>
+              <select id="three" class="browser-default custom-select">
+              <option selected>Paid in Full</option>
+              <option value="due">Partially Paid</option>
+              <option value="due">No Payment</option>
+            </select>
+            </div>
+            <div class="input-group mb-1 col-md-3">
+              <label>Due Date: &nbsp;</label>
+              <input type="date" id="due_date" disabled class="form-control border-1 small" placeholder="order#" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+          </div>
+            <div class="col-md-3 m-2 mr-4 float-right">
+              <button type="submit" class="btn float-right btn-primary" >Submit</button>
+            </div>
+        </form>
+        
+      </div>
+
+      <div class="card shadow p-2 mb-3">
+          
+        <form class="d-none d-sm-inline-block form-inline ml-md-2 my-2 my-md-2 mw-100 navbar-search">
+          <div class="col-md-12 row">
+            <div class="input-group col-md-3">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="invoice#" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+            <div class="input-group col-md-3">
+              <input type="text" class="form-control bg-light border-0 small" placeholder="order#" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+            <div class="input-group col-md-3">
+              <label>From:</label>
+              <input type="date" class="form-control bg-light border-0 small" placeholder="order#" aria-label="Search" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group col-md-3">
+              <label>To: </label>
+              <input type="date" class="form-control bg-light border-0 small" placeholder="order#" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+      
+      <div style="min-height: 842px" class="card shadow p-5 mb-5">
       
         <div class="container-fluid row">
           
@@ -207,5 +304,26 @@
 
       </div>
 
+     <script type="text/javascript">
+       
+       document.getElementById("one").onchange = function () {
+          document.getElementById("transport").setAttribute("disabled", "disabled");
+          if (this.value == 'trans')
+            document.getElementById("transport").removeAttribute("disabled");
+        };
 
+        document.getElementById("two").onchange = function () {
+          document.getElementById("installation").setAttribute("disabled", "disabled");
+          if (this.value == 'install')
+            document.getElementById("installation").removeAttribute("disabled");
+        };
+
+        document.getElementById("three").onchange = function () {
+          document.getElementById("due_date").setAttribute("disabled", "disabled");
+          if (this.value == 'due')
+            document.getElementById("due_date").removeAttribute("disabled");
+        };
+
+     </script>
+      
 @endsection
